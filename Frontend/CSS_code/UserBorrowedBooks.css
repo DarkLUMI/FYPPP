@@ -126,6 +126,23 @@ body {
     font-size: 20px !important;
   }
   
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #17a2b8;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: #138496;
+  }
+  
   @media screen and (max-width: 650px) {
     main {
       display: block !important;
