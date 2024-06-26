@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2024 at 04:47 PM
+-- Generation Time: Jun 26, 2024 at 05:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -86,7 +86,7 @@ CREATE TABLE `borrow_history` (
   `TRANS_ID` int(5) NOT NULL COMMENT 'Transaction ID',
   `BORROW_DATE` date NOT NULL COMMENT 'Borrow Book Date',
   `EXP_DATE` date NOT NULL COMMENT 'Expect Return Date',
-  `RETURN_DATE` date NOT NULL COMMENT 'Return Book Date',
+  `RETURN_TF` tinyint(1) NOT NULL COMMENT 'Return true or false',
   `BOOK_SERIAL` int(255) NOT NULL COMMENT 'Book Serial code in Library',
   `USER_NAME` varchar(255) NOT NULL COMMENT 'User Name'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
