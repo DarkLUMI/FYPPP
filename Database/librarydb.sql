@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 27, 2024 at 09:59 PM
+-- Generation Time: Jun 28, 2024 at 10:19 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -97,16 +97,10 @@ CREATE TABLE `borrow_history` (
 --
 
 INSERT INTO `borrow_history` (`TRANS_ID`, `BORROW_DATE`, `EXP_DATE`, `RETURN_DATE`, `RETURN_TF`, `BOOK_SERIAL`, `USER_NAME`) VALUES
-(1, '2024-06-26', '2024-07-03', NULL, 0, 111911, '1211207694'),
+(1, '2024-06-26', '2024-07-03', '2024-06-29', 1, 111911, '1211207694'),
 (2, '2024-06-26', '2024-07-03', NULL, 0, 222922, '1211207694'),
-(3, '2024-06-26', '2024-07-03', NULL, 0, 111911, '1211207694'),
-(4, '2024-06-26', '2024-07-03', NULL, 0, 222922, '1211207694'),
-(5, '2024-06-26', '2024-07-03', NULL, 0, 111911, '1211207694'),
-(6, '2024-06-26', '2024-07-03', NULL, 0, 111911, '1211207694'),
-(7, '2024-06-26', '2024-07-03', NULL, 0, 111911, '1211207694'),
-(8, '2024-06-26', '2024-07-03', NULL, 0, 111911, '1211207694'),
-(9, '2024-06-26', '2024-07-03', NULL, 0, 222922, '1211207694'),
-(10, '2024-06-27', '2024-07-04', NULL, 0, 222922, '1211207694');
+(11, '2024-06-29', '2024-07-06', '2024-06-29', 1, 111911, '1211207694'),
+(12, '2024-06-30', '2024-07-10', NULL, 0, 222922, '1211207694');
 
 -- --------------------------------------------------------
 
@@ -209,7 +203,7 @@ ALTER TABLE `book_rec`
 -- AUTO_INCREMENT for table `borrow_history`
 --
 ALTER TABLE `borrow_history`
-  MODIFY `TRANS_ID` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Transaction ID', AUTO_INCREMENT=11;
+  MODIFY `TRANS_ID` int(5) NOT NULL AUTO_INCREMENT COMMENT 'Transaction ID', AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `genres`
