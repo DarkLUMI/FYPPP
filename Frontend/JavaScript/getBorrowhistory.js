@@ -3,12 +3,17 @@ $(document).ready(function () {
     var rowsPerPage = 8;
     var totalRows = 0;
     var totalPages = 0;
+    var searchTerm = '';
 
     function fetchDataForPage(pageNumber) {
         $.ajax({
             url: "../../Backend/getBorrowHistory.php",
             type: "GET",
             dataType: "json",
+            data: {
+                page: pageNumber,
+                search: searchTerm
+            },
             success: function (data) {
                 totalRows = data.length;
                 totalPages = Math.ceil(totalRows / rowsPerPage);
@@ -21,6 +26,7 @@ $(document).ready(function () {
                 for (var i = startIndex; i < endIndex; i++) {
                     var record = data[i];
                     var returnDate = record.RETURN_DATE ? record.RETURN_DATE : '-';
+                    var buttonDisabled = record.RETURN_DATE ? 'disabled' : ''; // Disable button if RETURN_DATE exists
                     var row = '<tr>' +
                         '<td>' + record.BOOK_SERIAL + '</td>' +
                         '<td>' + record.TITLE + '</td>' +
@@ -28,10 +34,34 @@ $(document).ready(function () {
                         '<td>' + record.EXP_DATE + '</td>' +
                         '<td>' + returnDate + '</td>' +
                         '<td>' + record.USER_NAME + '</td>' +
-                        '<td><button class="btn btn-primary return-book" data-book-id="' + record.BOOK_SERIAL + '">Return</button></td>' +
+                        '<td><button class="btn btn-primary return-book" data-book-id="' + record.BOOK_SERIAL + '" ' + buttonDisabled + '>Return</button></td>' +
                         '</tr>';
                     $('#bookRecords').append(row);
                 }
+
+                $('.return-book').off('click').on('click', function () {
+                    var $row = $(this).closest('tr');
+                    var $bookSerial = $row.find('td').eq(0).text();
+
+                    console.log($bookSerial);
+
+                    $.ajax({
+                        url: "../../Backend/returnBook.php",
+                        type: "POST",
+                        data: {
+                            book_serial: $bookSerial,
+                        },
+                        success: function (response) {
+                            console.log(response);
+                            fetchDataForPage(currentPage); // Reload data after returning book
+                            alert('Book returned successfully!');
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error returning book:', error);
+                            alert('Error returning book. Please try again later.');
+                        }
+                    });
+                });
 
                 updatePageNumber();
             },
@@ -45,6 +75,7 @@ $(document).ready(function () {
     function updatePageNumber() {
         $('#page-number').text(currentPage + 1);
     }
+
 
     fetchDataForPage(currentPage);
 
@@ -62,5 +93,12 @@ $(document).ready(function () {
             currentPage++;
             fetchDataForPage(currentPage);
         }
+    });
+
+    $('#search-form').submit(function (e) {
+        e.preventDefault();
+        searchTerm = $('#search-input').val().trim();
+        currentPage = 0;
+        fetchDataForPage(currentPage);
     });
 });

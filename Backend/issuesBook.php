@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'connection.php'; // Ensure this file correctly establishes $link or $conn
+include 'connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['username']) && isset($_POST['bookSerial'])) {

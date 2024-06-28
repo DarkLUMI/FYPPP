@@ -148,6 +148,15 @@ main {
   margin-right: 45%;
 }
 
+.search {
+  margin-bottom: 10px;
+}
+
+.form-control {
+  width: 1050px !important;
+  display: inline !important;
+}
+
 @media screen and (max-width: 650px) {
   main {
     display: block !important;

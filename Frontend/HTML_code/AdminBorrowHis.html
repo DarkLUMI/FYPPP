@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="../CSS_code/UserBorrowedBooks.css">
     <link rel="stylesheet" type="text/css" href="../CSS_code/SideBar.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../javascript/displayOverview.js"></script>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
     <script src="../javascript/TokenValidation.js"></script>
     <script src="../javascript/LogoutRemove.js"></script>
@@ -121,20 +120,12 @@
                 <a>Borrow History</a>
             </div>
             <hr>
-            <div class="search">
+            <div class="search d-flex">
                 <form action="../../Backend/getBorrowHistory.php" method="get" name="form1" id="search-form">
-                    <table class="table ">
-                        <tr>
-                            <td>
-                                <input type="text" name="search" class="form-control"
-                                    placeholder="Enter book serial or username" id="search-input">
-                            </td>
-                            <td>
-                                <input type="submit" id="search-history" name="submit1" class="btn btn-info"
-                                    value="Search History">
-                            </td>
-                        </tr>
-                    </table>
+                    <input type="text" name="search" class="form-control" placeholder="Enter book serial or username"
+                        id="search-input">
+                    <input type="submit" id="search-history" name="submit1" class="btn btn-info ms-4"
+                        value="Search History">
                 </form>
             </div>
             <div class="issued-content">
