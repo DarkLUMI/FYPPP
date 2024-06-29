@@ -20,13 +20,20 @@ $(document).ready(function () {
 
                 $('#bookRecords').empty();
 
+                if (totalRows === 0) {
+                    $('#bookRecords').append('<tr><td colspan="7">No records found</td></tr>');
+                    currentPage = 0;
+                    updatePageNumber();
+                    return;
+                }
+
                 var startIndex = pageNumber * rowsPerPage;
                 var endIndex = Math.min(startIndex + rowsPerPage, totalRows);
 
                 for (var i = startIndex; i < endIndex; i++) {
                     var record = data[i];
                     var returnDate = record.RETURN_DATE ? record.RETURN_DATE : '-';
-                    var buttonDisabled = record.RETURN_DATE ? 'disabled' : ''; // Disable button if RETURN_DATE exists
+                    var buttonDisabled = record.RETURN_DATE ? 'disabled' : '';
                     var row = '<tr>' +
                         '<td>' + record.BOOK_SERIAL + '</td>' +
                         '<td>' + record.TITLE + '</td>' +
@@ -53,7 +60,7 @@ $(document).ready(function () {
                         },
                         success: function (response) {
                             console.log(response);
-                            fetchDataForPage(currentPage); // Reload data after returning book
+                            fetchDataForPage(currentPage);
                             alert('Book returned successfully!');
                         },
                         error: function (xhr, status, error) {
@@ -75,7 +82,6 @@ $(document).ready(function () {
     function updatePageNumber() {
         $('#page-number').text(currentPage + 1);
     }
-
 
     fetchDataForPage(currentPage);
 
