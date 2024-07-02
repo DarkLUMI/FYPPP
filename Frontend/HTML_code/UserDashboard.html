@@ -13,6 +13,7 @@
     <script src="../javascript/TokenValidation.js"></script>
     <script src="../javascript/LogoutRemove.js"></script>
     <script src="../javascript/fetchData.js"></script>
+    <script src="../javascript/UserGetDash.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -106,7 +107,7 @@
                                 <i class="fa fa-calendar-alt"></i>
                             </div>
                             <div class="text">
-                                <h2>2024-06-10</h2>
+                                <h2 id="next_return"></h2>
                                 <p>Next Return Date</p>
                             </div>
                         </div>
@@ -119,7 +120,7 @@
                                 <i class="fa fa-book"></i>
                             </div>
                             <div class="text">
-                                <h2>5</h2>
+                                <h2 id="borrowed_book"></h2>
                                 <p>Borrowed Books</p>
                             </div>
                         </div>
@@ -134,7 +135,7 @@
                                 </svg>
                             </div>
                             <div class="text">
-                                <h2>Active</h2>
+                                <h2 id="user_status"></h2>
                                 <p>Status</p>
                             </div>
                         </div>
@@ -147,7 +148,7 @@
                                 <i class="fa fa-book-reader"></i>
                             </div>
                             <div class="text">
-                                <h2>1</h2>
+                                <h2 id="requested_book"></h2>
                                 <p>Requested Book</p>
                             </div>
                         </div>
