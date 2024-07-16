@@ -10,16 +10,20 @@ $(document).ready(function () {
             },
             success: function (data) {
                 console.log(searchTerm);
+                console.log("Data received:", data);
                 if (Array.isArray(data) && data.length > 0) {
                     let content = '';
                     data.forEach(function (book) {
                         let bookImage = book.BOOK_IMG ? `data:image/jpeg;base64,${book.BOOK_IMG}` : '../../Assets/Image/default_book_img.png';
+                        let availability = book.AVAILABLE_COUNT > 0 ? 'Yes' : 'No';
+                        console.log(book.AVAILABLE_COUNT);
                         content += `
                             <div class="book-item">
                                 <img src="${bookImage}" alt="${book.TITLE}" class="book-img">
                                 <h3>${book.TITLE}</h3>
+                                <p>Publication: ${book.PUB_NAME}</p>
                                 <p>Author: ${book.AUTHOR}</p>
-                                <p>Available: ${book.AVAILABLE}</p>
+                                <p>Available: ${availability}</p>
                             </div>
                         `;
                     });
