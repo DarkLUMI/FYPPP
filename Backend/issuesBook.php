@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $isValid = true;
 
-        $sql_user = "SELECT USER_NAME FROM users WHERE USER_NAME = ?";
+        $sql_user = "SELECT USER_NAME FROM users WHERE USER_NAME = ? AND USER_STATUS = 0";
         $stmt_user = $link->prepare($sql_user);
         $stmt_user->bind_param("s", $username);
 
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt_user->num_rows == 0) {
                 echo "<script>
-                        alert('Username not found.');
+                        alert('Username not found or has been suspended.');
                         window.location.href = '../Frontend/HTML_code/AdminIssueBook.html';
                     </script>";
                 $isValid = false;

@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const isABooks = currentPath.includes('AdminViewBook.html');
     const isAIssueBook = currentPath.includes('AdminIssueBook.html');
     const isAVReqBook = currentPath.includes('AdminViewReqB.html');
+    const isAVConInfo = currentPath.includes('AdminViewCon.html');
     const shouldRedirectToDashboard = window.location.search.includes('redirect=true');
 
     if (token && !shouldRedirectToDashboard) {
@@ -50,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = '../HTML_code/AdminIssueBook.html?redirect=true';
             } else if (isAVReqBook) {
                 window.location.href = '../HTML_code/AdminViewReqB.html?redirect=true';
+            } else if (isAVConInfo) {
+                window.location.href = '../HTML_code/AdminViewCon.html?redirect=true';
             }
         }
     } else if (!token) {

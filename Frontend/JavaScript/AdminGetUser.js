@@ -38,9 +38,9 @@ $(document).ready(function () {
                         '<td>' + record.USER_NAME + '</td>' +
                         '<td>' + record.USER_EMAIL + '</td>' +
                         '<td>' + record.USER_PHONE + '</td>' +
-                        '<td>' + record.USER_PHONE + '</td>' +
-                        '<td>' + record.USER_PHONE + '</td>' +
-                        '<td>' + record.USER_PHONE + '</td>' +
+                        '<td>' + record.USER_ADDR + '</td>' +
+                        '<td>' + record.USER_SESS + '</td>' +
+                        '<td>' + record.USER_DEP + '</td>' +
                         '<td>' + userStatus + '</td>' +
                         '</tr>';
                     $('#userRecords').append(row);
