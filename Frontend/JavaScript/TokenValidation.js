@@ -62,15 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
         xhr.open('POST', '../../Backend/UserLoginCheckSts.php');
         xhr.setRequestHeader('Content-Type', 'application/json');
     
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                console.log(response.message);
-            } else {
-                console.log('Failed to update user status.');
-            }
-        };
-    
         xhr.onerror = function () {
             console.error('Request failed.');
         };

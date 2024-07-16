@@ -18,7 +18,6 @@ $(document).ready(function () {
             dataType: "json",
             data: requestData,
             success: function (data) {
-                console.log('Data received:', data);
                 totalRows = data.length;
                 totalPages = Math.ceil(totalRows / rowsPerPage);
 

@@ -49,14 +49,14 @@ $(document).ready(function () {
                 $('.return-book').off('click').on('click', function () {
                     var $row = $(this).closest('tr');
                     var $bookSerial = $row.find('td').eq(0).text();
-
-                    console.log($bookSerial);
+                    var $username = $row.find('td').eq(5).text();
 
                     $.ajax({
                         url: "../../Backend/returnBook.php",
                         type: "POST",
                         data: {
                             book_serial: $bookSerial,
+                            username: $username
                         },
                         success: function (response) {
                             console.log(response);

@@ -11,11 +11,11 @@ $postData = json_decode(file_get_contents('php://input'), true);
 $username = $postData['username'];
 
 try {
-    $sql = "UPDATE users u SET u.USER_STATUS = 1 WHERE u.USER_STATUS = 0 AND u.USER_NAME = ? AND u.RETURN_TF = 0 
-    AND EXISTS (SELECT 1 FROM borrow_history b WHERE b.USER_NAME = u.USER_NAME AND b.USER_NAME = ? AND b.EXP_DATE < NOW() )";
+    $sql = "UPDATE users u JOIN borrow_history b ON u.USER_NAME = b.USER_NAME SET u.USER_STATUS = 1 
+    WHERE u.USER_STATUS = 0 AND u.USER_NAME = ? AND b.RETURN_TF = 0 AND b.EXP_DATE < NOW();";
 
     $stmt = mysqli_prepare($link, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $username, $username);
+    mysqli_stmt_bind_param($stmt, "s", $username);
 
     mysqli_stmt_execute($stmt);
 

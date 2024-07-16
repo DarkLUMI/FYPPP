@@ -33,7 +33,7 @@ $(document).ready(function () {
                 for (var i = startIndex; i < endIndex; i++) {
                     var record = data[i];
                     var bookAVAI = record.AVAILABLE === 0 ? 'NO' : 'YES';
-                    var bookImage = record.BOOK_IMG ? `data:image/jpeg;base64,${record.BOOK_IMG}` : '../../Assets/Image/default_book_img.jpg';
+                    var bookImage = record.BOOK_IMG ? `data:image/jpeg;base64,${record.BOOK_IMG}` : '../../Assets/Image/default_book_img.png';
                     var row = '<tr>' +
                         '<td>' + record.BOOK_SERIAL + '</td>' +
                         '<td><img src="' + bookImage + '" alt="Book Image" style="max-width: 100px; max-height: 100px;"></td>' +
@@ -41,7 +41,7 @@ $(document).ready(function () {
                         '<td>' + record.AUTHOR + '</td>' +
                         '<td>' + record.PUB_NAME + '</td>' +
                         '<td>' + record.BOOK_BDATE + '</td>' +
-                        '<td>' + record.BOOK_PRICE + '</td>' +
+                        '<td>' + 'RM' + parseFloat(record.BOOK_PRICE).toFixed(2) + '</td>' +
                         '<td>' + bookAVAI + '</td>' +
                         '<td><button class="btn btn-primary AVAI-book" data-book-id="' + record.BOOK_SERIAL + '">Switch</button></td>' +
                         '<td><button class="btn btn-primary delete-book" data-book-id="' + record.BOOK_ID + '">Delete</button></td>' +

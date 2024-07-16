@@ -16,7 +16,6 @@ function fetchDashboardData() {
     xhr.onload = function () {
         if (xhr.status === 200) {
             const data = JSON.parse(xhr.responseText);
-            console.log(data);
             const nextReturn = document.getElementById('next_return');
             const borrowed_book = document.getElementById('borrowed_book');
             const user_status = document.getElementById('user_status');

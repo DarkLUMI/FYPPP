@@ -13,7 +13,7 @@ $(document).ready(function () {
                 if (Array.isArray(data) && data.length > 0) {
                     let content = '';
                     data.forEach(function (book) {
-                        let bookImage = book.BOOK_IMG ? `data:image/jpeg;base64,${book.BOOK_IMG}` : '../../Assets/Image/default_book_img.jpg';
+                        let bookImage = book.BOOK_IMG ? `data:image/jpeg;base64,${book.BOOK_IMG}` : '../../Assets/Image/default_book_img.png';
                         content += `
                             <div class="book-item">
                                 <img src="${bookImage}" alt="${book.TITLE}" class="book-img">
